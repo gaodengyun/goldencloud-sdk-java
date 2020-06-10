@@ -1,10 +1,10 @@
-package com.golden;
+package com.goldencloud.common;
 
     public class EnvEnum {
 
         enum URL {
 
-            TEST("http://openapi-test.wetax.com.cn"),
+            TEST("https://apigw-dev.goldentec.com"),
 
             PROD("https://openapi.wetax.com.cn");
 

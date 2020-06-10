@@ -1,4 +1,4 @@
-package com.golden.request;
+package com.goldencloud.common;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

@@ -1,44 +1,38 @@
-package examples;
+package com.goldencloud.invoice;
 
-import com.golden.Sdk;
-import com.golden.request.*;
-import net.sf.json.JSON;
+import com.goldencloud.common.Sdk;
+import com.goldencloud.invoice.models.InvoiceBlue;
+import com.goldencloud.invoice.models.InvoiceBlueGoodsInfo;
+import com.goldencloud.invoice.models.InvoiceRed;
+import com.goldencloud.invoice.models.InvoiceRedInvoice;
 import net.sf.json.JSONObject;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.List;
 
-public class example {
+public class InvoiceApi {
+    /**
+     * 发票冲红
+     */
+    public static JSONObject invoiceRed(Sdk sdk) throws RuntimeException, IOException,IllegalAccessException, InvocationTargetException {
+        InvoiceRed red = new InvoiceRed();
 
-    public static void main(String[] args) {
-        try {
-            Sdk sdk = new Sdk("EgDjckWzyGxwIi7e9J1A8LdruWMidFFH", "9Q8744Oe0nv8aw738b3HkjdylYZzNeZOcTz53KI4pchKpqIi", "test");
-            JSONObject result = invoiceBlue(sdk);
-            //JSONObject result = invoiceRed(sdk);
-            System.out.println(result);
-        } catch (IOException e) {
-                e.printStackTrace();
-        }catch (Exception e) {
-                e.printStackTrace();
-        }
-    }
-
-    public static JSONObject invoiceRed(Sdk sdk) throws IOException {
-        JSONObject jsonObject = new JSONObject();
-        ArrayList invoices = new ArrayList<JSONObject>();
-        JSONObject invoice = new JSONObject();
-        invoice.put("seller_taxpayer_num", "911101076819661132");//销方税号
-        invoice.put("callback_url", "回掉地址");//销方税号
-        invoice.put("order_sn", "6645588687037969410");//销方税号
+        ArrayList<InvoiceRedInvoice> invoices = new ArrayList<InvoiceRedInvoice>();
+        InvoiceRedInvoice invoice = new InvoiceRedInvoice();
+        invoice.setSellerTaxpayerNum("911101076819661132");//销方税号
+        invoice.setCallbackUrl("回掉地址");//销方税号
+        invoice.setOrderSn("6645588687037969410");//销方税号
         invoices.add(invoice);
-        jsonObject.put("invoices", invoices);
-        JSONObject result = sdk.httpPost("/invoice/red", jsonObject);
+
+        red.setInvoices(invoices);
+        JSONObject result = sdk.invoiceRed(red);
         return result;
     }
 
+    /**
+     * 发票开具
+     */
     public static JSONObject invoiceBlue(Sdk sdk) throws RuntimeException,IOException,IllegalAccessException, InvocationTargetException {
         InvoiceBlue blue = new InvoiceBlue();
         blue.setSellName("JACK测试企业12");
@@ -88,10 +82,9 @@ public class example {
 
         ArrayList<InvoiceBlueGoodsInfo> goodsInfos = new ArrayList<InvoiceBlueGoodsInfo>();
         goodsInfos.add(item);
-       // goodsInfos.add(item);
+        // goodsInfos.add(item);
         blue.setItems(goodsInfos);
         JSONObject result = sdk.invoiceBlue(blue);
         return result;
     }
 }
-

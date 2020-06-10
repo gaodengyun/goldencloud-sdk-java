@@ -2,21 +2,23 @@
 ===============================
 支持JDK >= 1.7
 
-[下载jar包](https://golden-static-files-1258944054.cos.ap-guangzhou.myqcloud.com/developerPlatform/developerPlatform-1.0.3-jar-with-dependencies.jar)
-  
-导入jar包
+获取安装:
+```说明：
+1.前往 Github 代码托管地址 下载源码压缩包。
+2.解压源码包到您项目合适的位置。
+3.将examples目录放到maven管理目录（/src/main/java）下，运行示例
+4.引用方法可参下面的示例。
+```
 
 - 快速开具蓝票
 
 ```java
 package examples;
 
-import com.golden.Sdk;
-import net.sf.json.JSON;
+import Sdk;
 import net.sf.json.JSONObject;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 public class example{
@@ -24,58 +26,57 @@ public class example{
     public static void main(String []args){
         try {
             Sdk sdk = new Sdk("fc36541461483b2db498", "d2641bfc30b293505ca2c09560b870aa", "1.0.0", "test");
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("seller_name", "");
-            jsonObject.put("seller_taxpayer_num", "111112222233333");
-            jsonObject.put("seller_address", "");
-            jsonObject.put("seller_tel", "");
-            jsonObject.put("seller_bank_name", "");
-            jsonObject.put("seller_bank_account", "");
-            jsonObject.put("title_type", 1);
-            jsonObject.put("buyer_title", "我是抬头");
-            jsonObject.put("buyer_taxpayer_num", "");
-            jsonObject.put("buyer_address", "");
-            jsonObject.put("buyer_bank_name", "");
-            jsonObject.put("buyer_bank_account", "");
-            jsonObject.put("buyer_phone", "");
-            jsonObject.put("buyer_email", "");
-            jsonObject.put("taker_phone", "");
-            jsonObject.put("taker_name", "");
-            jsonObject.put("order_id", "test001asdfsadfasdf");
-            jsonObject.put("invoice_type_code", "032");
-            jsonObject.put("callback_url", "http://www.xx.com");
-            jsonObject.put("drawer", "小刘");
-            jsonObject.put("payee", "小刘");
-            jsonObject.put("checker", "小刘");
-            jsonObject.put("trade_type", 0);
-            jsonObject.put("user_openid", "");
-            jsonObject.put("special_invoice_kind", "");
-            jsonObject.put("terminal_code", "");
-            jsonObject.put("amount_has_tax", 9508);
-            jsonObject.put("tax_amount", 864);
-            jsonObject.put("amount_without_tax", 8644);
-            jsonObject.put("remark", "");
-            
-            ArrayList<JSONObject> items = new ArrayList<JSONObject>();
-            
-            JSONObject item = new JSONObject();
-            item.put("name", "咨询服务");
-            item.put("tax_code", "1020202000000000000");
-            item.put("tax_type", "");
-            item.put("models", "xyz");
-            item.put("unit", "个");
-            item.put("total_price", 8644);
-            item.put("total", "5");
-            item.put("price", "17.288");
-            item.put("tax_rate", 100);
-            item.put("tax_amount", 864);
-            item.put("discount", 0);
-            item.put("zero_tax_flag", "");
-            item.put("preferential_policy_flag", "");
-            item.put("vat_special_management", "");
-            items.add(item);
-            jsonObject.put("items", items);
-            JSONObject result = sdk.httpPost("/invoice/blue", jsonObject);
+            InvoiceBlue blue = new InvoiceBlue();
+            blue.setSellName("JACK测试企业12");
+            blue.setSellerTaxpayerNum("911101076819661132");
+            blue.setSellerAddress("");
+            blue.setSellerTel("");
+            blue.setSellerBankName("");
+            blue.setSellerBankAccount("");
+            blue.setTitleType(1);
+            blue.setBuyerTitle("海南高灯科技");
+            blue.setBuyerTaxpayerNum("");
+            blue.setBuyerAddress("");
+            blue.setBuyerBankAccount("");
+            blue.setBuyerBankName("");
+            blue.setBuyerPhone("");
+            blue.setBuyerEmail("");
+            blue.setTakerPhone("");
+            blue.setOrderId("4651321213312");
+            blue.setInvoiceTypeCode("032");
+            blue.setCallbackUrl("https://www.baidu.com/xxs/callback");
+            blue.setDrawer("lx");
+            blue.setPayee("收到否");
+            blue.setChecker("jack");
+            blue.setUserOpenid("41345");
+            blue.setSpecialInvoiceKind("");
+            blue.setTerminalCode("");
+            blue.setAmountHasTax(9508);
+            blue.setTaxAmount(864);
+            blue.setAmountWithoutTax(8644);
+            blue.setRemark("sdd");
+    
+            InvoiceBlueGoodsInfo item = new InvoiceBlueGoodsInfo();
+            item.setName("海鲜真划算");
+            item.setTaxCode("1010499000000000000");
+            item.setTaxType("");
+            item.setModels("xyz");
+            item.setUnit("个");
+            item.setTotalPrice(8644);
+            item.setTotal("5");
+            item.setPrice("17.288");
+            item.setTaxRate(100);
+            item.setTaxAmount(864);
+            item.setDiscount(0);
+            item.setZeroTaxFlag("");
+            item.setPreferentialPolicyFlag("");
+            item.setVatSpecialManagement("");
+    
+            ArrayList<InvoiceBlueGoodsInfo> goodsInfos = new ArrayList<InvoiceBlueGoodsInfo>();
+            goodsInfos.add(item);
+            blue.setItems(goodsInfos);
+
+            JSONObject result = sdk.invoiceBlue(blue);
             System.out.println(result);
         }catch (IOException e){
             e.printStackTrace();
@@ -89,12 +90,10 @@ public class example{
 ```java
 package examples;
 
-import com.golden.Sdk;
-import net.sf.json.JSON;
+import Sdk;
 import net.sf.json.JSONObject;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 public class example{
@@ -102,30 +101,20 @@ public class example{
     public static void main(String []args){
         try {
             Sdk sdk = new Sdk("fc36541461483b2db498", "d2641bfc30b293505ca2c09560b870aa", "1.0.0", "test");
-           JSONObject jsonObject = new JSONObject();
-           ArrayList invoices = new ArrayList<JSONObject>();
-           JSONObject invoice = new JSONObject();
-           invoice.put("seller_taxpayer_num", "111112222233333");//销方税号
-           invoice.put("callback_url", "回掉地址");//销方税号
-           invoice.put("order_sn", "6557136429603008662");//销方税号
+           InvoiceRed red = new InvoiceRed();
+           
+           ArrayList<InvoiceRedInvoice> invoices = new ArrayList<InvoiceRedInvoice>();
+           InvoiceRedInvoice invoice = new InvoiceRedInvoice();
+           invoice.setSellerTaxpayerNum("911101076819661132");//销方税号
+           invoice.setCallbackUrl("回掉地址");//销方税号
+           invoice.setOrderSn("6645588687037969410");//销方税号
            invoices.add(invoice);
-           jsonObject.put("invoices", invoices);
-           JSONObject result = sdk.httpPost("/invoice/red", jsonObject);
+   
+           red.setInvoices(invoices);
+           JSONObject result = sdk.invoiceRed(red);
             System.out.println(result);
         }catch (IOException e){
             e.printStackTrace();
         }
     }
 }
-```
-运行examples
-============
-```bash
-    java -jar developerPlatform-1.0.0-jar-with-dependencies.jar
-```
-
-运行测试
-============
-```bash
-    java -jar developerPlatform-1.0.0-jar-with-dependencies.jar
-```

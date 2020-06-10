@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.golden</groupId>
-    <artifactId>developerPlatform</artifactId>
+    <groupId>com.goldencloud</groupId>
+    <artifactId>goldencloud-sdk-java</artifactId>
     <version>1.0.3</version>
 
     <dependencies>
@@ -29,7 +29,7 @@
         </dependency>
     </dependencies>
     <build>
-    	<sourceDirectory>src/java</sourceDirectory>
+    	<sourceDirectory>src/main/java</sourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -43,7 +43,7 @@
                     <!-- MainClass in mainfest make urlencode executable jar -->
                     <archive>
                         <manifest>
-                            <mainClass>examples.example</mainClass>
+                            <mainClass>examples.invoice.example</mainClass>
                         </manifest>
                     </archive>
 

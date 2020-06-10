@@ -1,4 +1,6 @@
-package com.golden.request;
+package com.goldencloud.invoice.models;
+
+import com.goldencloud.common.ApiField;
 
 public class InvoiceBlueYunnan {
     private String useDate;
