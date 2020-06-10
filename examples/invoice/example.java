@@ -17,7 +17,7 @@ public class example {
 
     public static void main(String[] args) {
         try {
-            Sdk sdk = new Sdk("xxxxxxxx", "a1c1234c5af678bc42d322a7gtrty4565", "test");
+            Sdk sdk = new Sdk("fc1234561483b2db498", "a1c1234c5af678bc42d322a7gtrty4565", "test");
             JSONObject result = invoiceBlue(sdk);
             //JSONObject result = invoiceRed(sdk);
             System.out.println(result);

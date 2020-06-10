@@ -25,7 +25,7 @@ public class example{
     
     public static void main(String []args){
         try {
-            Sdk sdk = new Sdk("fc36541461483b2db498", "d2641bfc30b293505ca2c09560b870aa", "1.0.0", "test");
+            Sdk sdk = new Sdk("fc1234561483b2db498", "a1c1234c5af678bc42d322a7gtrty4565", "1.0.0", "test");
             InvoiceBlue blue = new InvoiceBlue();
             blue.setSellName("JACK测试企业12");
             blue.setSellerTaxpayerNum("911101076819661132");
@@ -100,7 +100,7 @@ public class example{
     
     public static void main(String []args){
         try {
-            Sdk sdk = new Sdk("fc36541461483b2db498", "d2641bfc30b293505ca2c09560b870aa", "1.0.0", "test");
+            Sdk sdk = new Sdk("fc1234561483b2db498", "a1c1234c5af678bc42d322a7gtrty4565", "1.0.0", "test");
            InvoiceRed red = new InvoiceRed();
            
            ArrayList<InvoiceRedInvoice> invoices = new ArrayList<InvoiceRedInvoice>();
