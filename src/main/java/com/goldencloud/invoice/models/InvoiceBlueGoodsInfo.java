@@ -14,15 +14,15 @@ public class InvoiceBlueGoodsInfo {
 
     private String unit;
 
-    private int totalPrice;
+    private String totalPrice;
 
     private String total;
 
     private String price;
 
-    private int taxRate;
+    private String taxRate;
 
-    private int taxAmount;
+    private String taxAmount;
 
     private String zeroTaxFlag;
 
@@ -30,7 +30,7 @@ public class InvoiceBlueGoodsInfo {
     
     private String vatSpecialManagement;
 
-    private int discount;
+    private String discount;
 
     @ApiField(name="name")
     public String getName() {
@@ -83,11 +83,11 @@ public class InvoiceBlueGoodsInfo {
     }
 
     @ApiField(name="total_price")
-    public int getTotalPrice() {
+    public String getTotalPrice() {
         return totalPrice;
     }
 
-    public InvoiceBlueGoodsInfo setTotalPrice(int totalPrice) {
+    public InvoiceBlueGoodsInfo setTotalPrice(String totalPrice) {
         this.totalPrice = totalPrice;
         return this;
     }
@@ -113,31 +113,31 @@ public class InvoiceBlueGoodsInfo {
     }
 
     @ApiField(name="tax_rate")
-    public int getTaxRate() {
+    public String getTaxRate() {
         return taxRate;
     }
 
-    public InvoiceBlueGoodsInfo setTaxRate(int taxRate) {
+    public InvoiceBlueGoodsInfo setTaxRate(String taxRate) {
         this.taxRate = taxRate;
         return this;
     }
 
     @ApiField(name="tax_amount")
-    public int getTaxAmount() {
+    public String getTaxAmount() {
         return taxAmount;
     }
 
-    public InvoiceBlueGoodsInfo setTaxAmount(int taxAmount) {
+    public InvoiceBlueGoodsInfo setTaxAmount(String taxAmount) {
         this.taxAmount = taxAmount;
         return this;
     }
 
     @ApiField(name="discount")
-    public int getDiscount() {
+    public String getDiscount() {
         return discount;
     }
 
-    public InvoiceBlueGoodsInfo setDiscount(int discount) {
+    public InvoiceBlueGoodsInfo setDiscount(String discount) {
         this.discount = discount;
         return this;
     }

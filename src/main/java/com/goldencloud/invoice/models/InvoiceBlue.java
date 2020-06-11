@@ -1,6 +1,7 @@
 package com.goldencloud.invoice.models;
 
 import com.goldencloud.common.ApiField;
+import com.sun.org.apache.xpath.internal.objects.XString;
 
 import java.util.List;
 
@@ -56,13 +57,13 @@ public class InvoiceBlue {
 
     private String zsfs;
 
-    private int deduction;
+    private String deduction;
 
-    private int amountHasTax;
+    private String amountHasTax;
 
-    private int taxAmount;
+    private String taxAmount;
 
-    private int amountWithoutTax;
+    private String amountWithoutTax;
     
     private String remark;
     
@@ -336,41 +337,41 @@ public class InvoiceBlue {
     }
 
     @ApiField(name="deduction")
-    public int getDeduction() {
+    public String getDeduction() {
         return deduction;
     }
 
-    public InvoiceBlue setDeduction(int deduction) {
+    public InvoiceBlue setDeduction(String deduction) {
         this.deduction = deduction;
         return this;
     }
 
     @ApiField(name="amount_has_tax")
-    public int getAmountHasTax() {
+    public String getAmountHasTax() {
         return amountHasTax;
     }
 
-    public InvoiceBlue setAmountHasTax(int amountHasTax) {
+    public InvoiceBlue setAmountHasTax(String amountHasTax) {
         this.amountHasTax = amountHasTax;
         return this;
     }
 
     @ApiField(name="tax_amount")
-    public int getTaxAmount() {
+    public String getTaxAmount() {
         return taxAmount;
     }
 
-    public InvoiceBlue setTaxAmount(int taxAmount) {
+    public InvoiceBlue setTaxAmount(String taxAmount) {
         this.taxAmount = taxAmount;
         return this;
     }
 
     @ApiField(name="amount_without_tax")
-    public int getAmountWithoutTax() {
+    public String getAmountWithoutTax() {
         return amountWithoutTax;
     }
 
-    public InvoiceBlue setAmountWithoutTax(int amountWithoutTax) {
+    public InvoiceBlue setAmountWithoutTax(String amountWithoutTax) {
         this.amountWithoutTax = amountWithoutTax;
         return this;
     }

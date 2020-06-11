@@ -59,9 +59,9 @@ public class InvoiceApi {
         blue.setUserOpenid("41345");
         blue.setSpecialInvoiceKind("");
         blue.setTerminalCode("");
-        blue.setAmountHasTax(9508);
-        blue.setTaxAmount(864);
-        blue.setAmountWithoutTax(8644);
+        blue.setAmountHasTax("95.08");
+        blue.setTaxAmount("8.64");
+        blue.setAmountWithoutTax("86.44");
         blue.setRemark("sdd");
 
         InvoiceBlueGoodsInfo item = new InvoiceBlueGoodsInfo();
@@ -70,12 +70,12 @@ public class InvoiceApi {
         item.setTaxType("");
         item.setModels("xyz");
         item.setUnit("个");
-        item.setTotalPrice(8644);
+        item.setTotalPrice("86.44");
         item.setTotal("5");
         item.setPrice("17.288");
-        item.setTaxRate(100);
-        item.setTaxAmount(864);
-        item.setDiscount(0);
+        item.setTaxRate("0.03");
+        item.setTaxAmount("8.64");
+        item.setDiscount("-20.88");
         item.setZeroTaxFlag("");
         item.setPreferentialPolicyFlag("");
         item.setVatSpecialManagement("");
