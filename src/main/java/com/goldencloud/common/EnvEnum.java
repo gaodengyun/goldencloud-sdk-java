@@ -4,9 +4,9 @@ package com.goldencloud.common;
 
         enum URL {
 
-            TEST("https://apigw-dev.goldentec.com"),
+            TEST("https://apigw-test.goldentec.com"),
 
-            PROD("https://openapi.wetax.com.cn");
+            PROD("https://apigw.goldentec.com");
 
             private String url;
 
