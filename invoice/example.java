@@ -1,4 +1,4 @@
-package examples.invoice;
+package com.goldencloud.examples.invoice;
 
 import com.goldencloud.common.Sdk;
 import com.goldencloud.invoice.models.InvoiceBlue;
@@ -17,7 +17,8 @@ public class example {
 
     public static void main(String[] args) {
         try {
-            Sdk sdk = new Sdk("fc1234561483b2db498", "a1c1234c5af678bc42d322a7gtrty4565", "test");
+            Sdk sdk = new Sdk("7dc55c6fce2b5f2e6a24", "fa181c90d8b28d570fed71093f929e36", "test");
+            //Sdk sdk = new Sdk("fc1234561483b2db498", "a1c1234c5af678bc42d322a7gtrty4565", "test");
             JSONObject result = invoiceBlue(sdk);
             //JSONObject result = invoiceRed(sdk);
             System.out.println(result);

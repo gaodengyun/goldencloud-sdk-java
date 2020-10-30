@@ -87,9 +87,9 @@ public class Sdk {
         String requestSignString = publicString+"signature="+sign;
         String postUrl = this.getBaseUrl()+url;
 
-        //System.out.println(postUrl);
-        //System.out.println(postData);
-        //System.out.println(requestSignString);
+        System.out.println("请求地址："+postUrl);
+        System.out.println("待签名串："+postData);
+        System.out.println("请求头："+requestSignString);
         return this.httpPost(postUrl, postData,requestSignString);
     }
 
