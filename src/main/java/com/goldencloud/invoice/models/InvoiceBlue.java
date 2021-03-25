@@ -7,7 +7,7 @@ import java.util.List;
 
 public class InvoiceBlue {
 
-    private String sellName;
+    private String sellerName;
 
     private String sellerTaxpayerNum;
 
@@ -276,13 +276,13 @@ public class InvoiceBlue {
         return this;
     }
 
-    @ApiField(name="sell_name")
-    public String getSellName() {
-        return sellName;
+    @ApiField(name="seller_name")
+    public String getSellerName() {
+        return sellerName;
     }
 
-    public InvoiceBlue setSellName(String sellName) {
-        this.sellName = sellName;
+    public InvoiceBlue setSellerName(String sellerName) {
+        this.sellerName = sellerName;
         return this;
     }
 
