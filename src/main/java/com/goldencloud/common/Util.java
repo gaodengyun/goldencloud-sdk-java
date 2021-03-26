@@ -49,7 +49,7 @@ public class Util {
             Mac sha256_HMAC = Mac.getInstance("HmacSHA256");
             SecretKeySpec secret_key = new SecretKeySpec(secret.getBytes(), "HmacSHA256");
             sha256_HMAC.init(secret_key);
-            byte[] bytes = sha256_HMAC.doFinal(message.getBytes());
+            byte[] bytes = sha256_HMAC.doFinal(message.getBytes("utf-8"));
             result = DatatypeConverter.printBase64Binary(bytes);
         } catch (Exception e)
         {
