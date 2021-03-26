@@ -35,7 +35,7 @@ public class InvoiceApi {
      */
     public static JSONObject invoiceBlue(Sdk sdk) throws RuntimeException,IOException,IllegalAccessException, InvocationTargetException {
         InvoiceBlue blue = new InvoiceBlue();
-        blue.setSellName("JACK测试企业12");
+        blue.setSellerName("JACK测试企业12");
         blue.setSellerTaxpayerNum("911101076819661132");
         blue.setSellerAddress("");
         blue.setSellerTel("");
